@@ -36,14 +36,10 @@ roslaunch spot_arm_moveit_config spot_arm_planning_execution.launch
 
 4. If ROS is correctly configured on the laptop, then the python MoveIt Commander API should pickup the MoveIt node running on Spot (`spot_arm_moveit_config`) and start following the arm motions.
 ```
+cd nbv_demo_ws
+source devel/setup.bash
 export ROS_MASTER_URI=http://192.168.11.151:11311
 python3 moveit_joint_execute.py
 ```
 
-The `moveit_joint_execute.py` depends on `moveit_client.py` and some ROS packages in `active_nbv` repository (robot_helpers) and MoveIt Commander itself. The arm poses are pre-computed for different base paths. By default it should be pre-computed for the S-shaped path around the lab (Starting at the Red toolbox facing Blake's desk and ending at the back of the lab).
-
-
-
-
-
-
+The `moveit_joint_execute.py` depends on `moveit_client.py` and some ROS packages in `active_nbv` repository (robot_helpers) and MoveIt Commander itself. The arm poses are pre-computed for different base paths. By default it should be pre-computed for the S-shaped path around the lab (Starting at the red workbench facing Blake's desk and ending at the back of the lab).
