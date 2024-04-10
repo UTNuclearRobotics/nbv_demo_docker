@@ -1,4 +1,4 @@
-## Docker Container for NBV Repository
+## Set Up Docker Container for NBV Repository
 
 Run the Docker container. Inside the workspace, create a `src` directory and clone the [nbv_active](https://github.com/UTNuclearRobotics/active_nbv/tree/ros_noetic) repository.
 
@@ -17,7 +17,8 @@ git clone --recursive git@github.com:UTNuclearRobotics/active_nbv.git -b ros_noe
 ssh spot@192.168.11.151 
 cd catkin_ws 
 source devel/setup.bash 
-export ROS_IP=192.168.11.151 
+export ROS_IP=192.168.11.151
+source manipulation_ws/devel/setup.bash
 roslaunch spot_manipulation_driver nrg_spot_driver.launch
 ```
 
@@ -26,6 +27,7 @@ roslaunch spot_manipulation_driver nrg_spot_driver.launch
 ssh spot@192.168.11.151 
 export ROS_MASTER_URI=http://192.168.11.151:11311
 export ROS_IP=192.168.11.151
+source /opt/ros/noetic/setup.bash
 roslaunch teleop_twist_joy teleop.launch config_filepath:=/home/spot/catkin_ws/atk3.config.yaml
 ```
 
@@ -34,6 +36,7 @@ roslaunch teleop_twist_joy teleop.launch config_filepath:=/home/spot/catkin_ws/a
 ssh spot@192.168.11.151 
 export ROS_MASTER_URI=http://192.168.11.151:11311
 export ROS_IP=192.168.11.151
+source nrg_spot_manipulation_moveit/devel/setup.bash
 roslaunch spot_arm_moveit_config spot_arm_planning_execution.launch
 ```
 
