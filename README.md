@@ -1,10 +1,16 @@
-# Setting up Repository
+## Docker Container for NBV Repository
 
-Follow the steps in this [active_nbv](https://github.com/UTNuclearRobotics/active_nbv/tree/ros_noetic) repository.
+Run the Docker container. Inside the workspace, create a `src` directory and clone the [nbv_active](https://github.com/UTNuclearRobotics/active_nbv/tree/ros_noetic) repository.
 
-# Running the Demo on Spot
+```
+mkdir nbv_demo_ws/src
+cd nbv_demo_ws/src
+git clone --recursive git@github.com:UTNuclearRobotics/active_nbv.git -b ros_noetic
+```
 
-## Terminals on Spot
+## Running the Demo on Spot
+
+### Terminals on Spot
 
 1. Connect to the AugRE51 WiFi network and launch the NRG Spot driver from the `spot_manipulation_driver` package. 
 ```
@@ -32,9 +38,9 @@ roslaunch spot_arm_moveit_config spot_arm_planning_execution.launch
 ```
 
 
-## Terminals on Laptop
+### Terminals on Laptop
 
-4. If ROS is correctly configured on the laptop, then the python MoveIt Commander API should pickup the MoveIt node running on Spot (`spot_arm_moveit_config`) and start following the arm motions.
+4. Inside the Docker container, run the below commands. If ROS is correctly configured on the laptop, then the python MoveIt Commander API should pickup the MoveIt node running on Spot (`spot_arm_moveit_config`) and start following the arm motions.
 ```
 cd nbv_demo_ws
 source devel/setup.bash
