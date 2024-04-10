@@ -45,9 +45,8 @@ roslaunch spot_arm_moveit_config spot_arm_planning_execution.launch
 
 4. Inside the Docker container, run the below commands. If ROS is correctly configured on the laptop, then the python MoveIt Commander API should pickup the MoveIt node running on Spot (`spot_arm_moveit_config`) and start following the arm motions.
 ```
-cd nbv_demo_ws
-source devel/setup.bash
 export ROS_MASTER_URI=http://192.168.11.151:11311
+cd nbv_demo_ws && source devel/setup.bash
 python3 moveit_joint_execute.py
 ```
 
