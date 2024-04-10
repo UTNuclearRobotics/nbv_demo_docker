@@ -1,9 +1,9 @@
 version: "3"
 
 services:
-  rosd_s:
-    image: rosd_i
-    container_name: rosd_c
+  nbv_demo_s:
+    image: nbv_demo_i
+    container_name: nbv_demo_c
     build:
       # set the build context to the directory containing build files
       context: .
@@ -27,7 +27,7 @@ services:
       - apparmor:unconfined
     volumes:
       # mount host directories to the container for persistent storage
-      - ../projects:/root/projects
+      - ../nbv_demo_ws:/root/nbv_demo_ws
       # mount the X11 socket to enable graphics display
       - /tmp/.X11-unix:/tmp/.X11-unix
       # required for non-nvidia users, comment out for nvidia users

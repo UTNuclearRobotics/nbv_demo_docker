@@ -8,36 +8,39 @@ ENV ROS_DISTRO noetic
 # install some useful packages and upgrade existing ones
 RUN apt update && apt upgrade -y \
     && apt install -y \
-    apt-utils \
-    git \
-    curl \
-    nano \
-    vim \
-    tmux \
     x11-apps \
     python3-pip \
     python3-catkin-tools \
-    python-is-python3 \
-    libqt5websockets5-dev \
-    qt5-default
+    python-is-python3 
 
 # install ros packages
-# see ../docs/installing_ros_packages.md for alternatives
 RUN DEBIAN_FRONTEND=noninteractive apt install -y \
-    ros-${ROS_DISTRO}-rviz \
+    ros-${ROS_DISTRO}-moveit \
+    ros-${ROS_DISTRO}-moveit-python \
+    ros-${ROS_DISTRO}-tf \
+    ros-${ROS_DISTRO}-ros-numpy \
+    ros-${ROS_DISTRO}-trac-ik-kinematics-plugin \
+    ros-${ROS_DISTRO}-trac-ik-python \
     && rm -rf /var/lib/apt/lists/*
 
-RUN rosdep update
+# install python packages
+RUN pip install \
+    open3d \
+    ipdb \
+    numba \ 
+    transforms3d
+
+RUN pip install --upgrade numpy
 
 # switch to home dir
 WORKDIR /root
 
 # setup a package from github
-RUN git clone https://github.com/ut-amrl/amrl_msgs.git
-RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
-    && cd amrl_msgs \
-    && export ROS_PACKAGE_PATH=`pwd`:$ROS_PACKAGE_PATH \
-    && make -j
+# RUN git clone https://github.com/ut-amrl/amrl_msgs.git
+# RUN source /opt/ros/${ROS_DISTRO}/setup.bash \
+#     && cd amrl_msgs \
+#     && export ROS_PACKAGE_PATH=`pwd`:$ROS_PACKAGE_PATH \
+#     && make -j
 
 # setup .bashrc
 SHELL ["/bin/bash", "-l", "-c"]
@@ -50,5 +53,6 @@ RUN echo -e "\
 
 # copy the entrypoint into the image
 COPY ./entrypoint.sh /entrypoint.sh
+
 # run this script on startup
 ENTRYPOINT /entrypoint.sh
