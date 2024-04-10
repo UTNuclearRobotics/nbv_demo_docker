@@ -33,7 +33,7 @@ roslaunch teleop_twist_joy teleop.launch config_filepath:=/home/spot/catkin_ws/a
 
 3. In another terminal, export ROS master and IP, then launch the Spot arm MoveIt node from the [spot_arm_moveit_config](https://github.com/UTNuclearRobotics/nrg_spot_manipulation_moveit/tree/nrg_devel) package.
 ```
-ssh spot@192.168.11.151 
+ssh -X spot@192.168.11.151 
 export ROS_MASTER_URI=http://192.168.11.151:11311
 export ROS_IP=192.168.11.151
 source nrg_spot_manipulation_moveit/devel/setup.bash
