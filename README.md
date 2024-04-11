@@ -15,10 +15,8 @@ git clone --recursive git@github.com:UTNuclearRobotics/active_nbv.git -b ros_noe
 1. Connect to the AugRE51 WiFi network and launch the NRG Spot driver from the `spot_manipulation_driver` package. 
 ```
 ssh spot@192.168.11.151 
-cd catkin_ws 
-source devel/setup.bash 
 export ROS_IP=192.168.11.151
-source manipulation_ws/devel/setup.bash
+source catkin_ws/devel/setup.bash 
 roslaunch spot_manipulation_driver nrg_spot_driver.launch
 ```
 
