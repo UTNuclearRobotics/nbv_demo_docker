@@ -2,7 +2,7 @@
 
 Run the Docker container. Inside the workspace, create a `src` directory and clone the repositories below:
 - [nbv_active](https://github.com/UTNuclearRobotics/active_nbv/tree/ros_noetic)
-- [nrg_spot_manipulation_moveit](https://github.com/UTNuclearRobotics/nrg_spot_manipulation_moveit/tree/noetic-devel)
+- [spot_manipulation_moveit](https://github.com/UTNuclearRobotics/nrg_spot_manipulation_moveit/tree/noetic-devel)
 
 ```
 cd nbv_demo_ws/src
@@ -36,7 +36,7 @@ source /opt/ros/noetic/setup.bash
 roslaunch teleop_twist_joy teleop.launch config_filepath:=/home/spot/catkin_ws/atk3.config.yaml
 ```
 
-3. In another terminal, export ROS master and IP, then launch the Spot arm MoveIt node from the [spot_arm_moveit_config](https://github.com/UTNuclearRobotics/nrg_spot_manipulation_moveit/tree/nrg_devel) package.
+3. In another terminal, export ROS master and IP, then launch the Spot arm MoveIt node from the [spot_arm_moveit_config](https://github.com/UTNuclearRobotics/nrg_spot_manipulation_moveit/tree/noetic-devel) package.
 ```
 ssh -X spot@192.168.11.151 
 export ROS_MASTER_URI=http://192.168.11.151:11311 && export ROS_IP=192.168.11.151
