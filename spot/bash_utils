@@ -2,27 +2,27 @@ rosd-start(){
     #add xhost permissions for docker to use display
     xhost +local:docker
     echo "added docker xhost permissions"
-    docker compose -f $ROSD_DIRECTORY/Docker/docker-compose.yaml up -d
+    docker compose -f $ROSD_DIRECTORY/spot/docker-compose.yaml up -d
 }
 
 rosd-stop(){
     # stop the container and remove it
-    docker compose -f $ROSD_DIRECTORY/Docker/docker-compose.yaml down
+    docker compose -f $ROSD_DIRECTORY/spot/docker-compose.yaml down
 }
 
 rosd-shell() {
     # open a shell in the container
-    docker exec -ti nbv_demo_c bash -l
+    docker exec -ti nbv_demo_spot_c bash -l
 }
 
 rosd-build() {
     # if the container is running, stop it
-    if [ "$(docker ps -q -f name=nbv_demo_c)" ]; then
-        echo "stopping container nbv_demo_c..."
-        docker compose -f $ROSD_DIRECTORY/Docker/docker-compose.yaml down
+    if [ "$(docker ps -q -f name=nbv_demo_spot_c)" ]; then
+        echo "stopping container nbv_demo_spot_c..."
+        docker compose -f $ROSD_DIRECTORY/spot/docker-compose.yaml down
     fi
     # build the container from the docker-compose file
-    docker compose -f $ROSD_DIRECTORY/Docker/docker-compose.yaml build
+    docker compose -f $ROSD_DIRECTORY/spot/docker-compose.yaml build
 }
 
 rosd-dir() {
@@ -34,5 +34,5 @@ rosd-dir() {
 
 rosd-log() {
     # view the logs of the picogk container
-    docker logs nbv_demo_c
+    docker logs spot_noetic_c
 }

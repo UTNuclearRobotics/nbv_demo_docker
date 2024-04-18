@@ -1,15 +1,6 @@
-## Set Up Docker Container for NBV Repository
+## Set Up Docker Containers for NBV Repository
 
-Run the Docker container. Inside the workspace, create a `src` directory and clone the repositories below:
-- [nbv_active](https://github.com/UTNuclearRobotics/active_nbv/tree/ros_noetic)
-- [spot_manipulation_moveit](https://github.com/UTNuclearRobotics/nrg_spot_manipulation_moveit/tree/nrg_devel)
-- spot_description
-
-```
-cd nbv_demo_ws/src
-git clone -b ros_noetic --recursive git@github.com:UTNuclearRobotics/active_nbv.git
-git clone -b nrg_devel https://github.com/UTNuclearRobotics/nrg_spot_manipulation_moveit/tree/nrg_devel
-```
+See the `catkin_ws/src/README.md` for instructions to download the needed packages. 
 
 ## Running the Demo on Spot
 

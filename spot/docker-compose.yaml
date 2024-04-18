@@ -1,9 +1,9 @@
 version: "3"
 
 services:
-  nbv_demo_s:
-    image: nbv_demo_i
-    container_name: nbv_demo_c
+  nbv_demo_spot_s:
+    image: nbv_demo_spot_i
+    container_name: nbv_demo_spot_c
     build:
       # set the build context to the directory containing build files
       context: .
@@ -19,15 +19,12 @@ services:
       # - NVIDIA_VISIBLE_DEVICES=all
       # disable qt-X11 memory sharing for RViz
       - QT_X11_NO_MITSHM=1
-    env_file:
-      # set environment variables via a file
-      - robot.env
     security_opt:
     # this is set bc of errors with RViz being denied dbus comm w/ host
       - apparmor:unconfined
     volumes:
       # mount host directories to the container for persistent storage
-      - ../nbv_demo_ws:/root/nbv_demo_ws
+      - ./catkin_spot_ws:/root/catkin_spot_ws
       # mount the X11 socket to enable graphics display
       - /tmp/.X11-unix:/tmp/.X11-unix
       # required for non-nvidia users, comment out for nvidia users

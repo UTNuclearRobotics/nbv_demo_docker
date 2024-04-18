@@ -1,1 +1,9 @@
-nbv_demo_ws
+# Ignore all files and directories inside catkin_ws
+laptop/catkin_laptop_ws/*
+spot/catkin_spot_ws/*
+
+# Exclude Python files in catkin_ws
+!laptop/catkin_laptop_ws/*.py
+
+# Exclude README files
+!*/README.md
