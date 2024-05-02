@@ -4,6 +4,7 @@ spot/catkin_spot_ws/*
 
 # Exclude Python files in catkin_ws
 !laptop/catkin_laptop_ws/*.py
+!spot/catkin_spot_ws/*.yaml
 
 # Exclude README files
 !*/README.md

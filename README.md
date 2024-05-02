@@ -5,7 +5,7 @@ See the `catkin_ws/src/README.md` for instructions to download the needed packag
 ## Running the Demo on Spot
 
 ### Terminals on Spot
-All the steps in this section are in it's own terminal inside Spot.
+All the steps in this section are in it's own terminal inside Spot. Connect to the AugRE51 Wi-Fi network.
 ```
 ssh spot@192.168.11.151
 ```
@@ -18,7 +18,7 @@ source /opt/ros/noetic/setup.bash
 roscore
 ```
 
-2. Spot Driver: connect to the AugRE51 Wi-Fi network and launch the NRG Spot driver from the `spot_manipulation_driver` package. 
+2. Spot Driver: launch the NRG Spot driver from the `spot_manipulation_driver` package. 
 ```
 export ROS_MASTER_URI=http://192.168.11.151:11311
 export ROS_IP=192.168.11.151
@@ -41,7 +41,7 @@ All the steps in this section are run in it's own terminal inside the Docker con
 ```
 export ROS_MASTER_URI=http://192.168.11.151:11311
 export ROS_IP=192.168.11.206
-source catkin_ws/devel/setup.bash
+source catkin_laptop_ws/devel/setup.bash
 roslaunch spot_arm_moveit_config spot_arm_planning_execution.launch
 ```
 
@@ -49,7 +49,7 @@ roslaunch spot_arm_moveit_config spot_arm_planning_execution.launch
 ```
 export ROS_MASTER_URI=http://192.168.11.151:11311
 export ROS_IP=192.168.11.206
-source nbv_demo_ws/devel/setup.bash
+source catkin_laptop_ws/devel/setup.bash
 python3 moveit_joint_execute.py
 ```
 
