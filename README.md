@@ -35,13 +35,14 @@ roslaunch teleop_twist_joy teleop.launch config_filepath:=/home/spot/catkin_ws/a
 ```
 
 ### Terminals on Laptop Docker Container
-All the steps in this section are run in it's own terminal inside the Docker container.
+
 4. build the docker container:
 ```
 cd ~/nbv_demo_docker/laptop
 docker-compose build
 ```
-5. inside the docker container, build the catkin workspace:
+All the following steps are run in it's own terminal inside the Docker container.
+5. build the catkin workspace:
 ```
 cd ~/catkin_laptop_ws
 catkin build
