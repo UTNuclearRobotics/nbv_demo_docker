@@ -36,20 +36,32 @@ roslaunch teleop_twist_joy teleop.launch config_filepath:=/home/spot/catkin_ws/a
 
 ### Terminals on Laptop Docker Container
 All the steps in this section are run in it's own terminal inside the Docker container.
+4. build the docker container:
+```
+cd ~/nbv_demo_docker/laptop
+docker-compose build
+```
+5. inside the docker container, build the catkin workspace:
+```
+cd ~/catkin_laptop_ws
+catkin build
+```
 
-4. MoveIt: launch the Spot arm MoveIt node from the [spot_arm_moveit_config](https://github.com/UTNuclearRobotics/nrg_spot_manipulation_moveit/tree/nrg_devel) package.
+
+6. MoveIt: launch the Spot arm MoveIt node from the [spot_arm_moveit_config](https://github.com/UTNuclearRobotics/nrg_spot_manipulation_moveit/tree/nrg_devel) package.
 ```
 export ROS_MASTER_URI=http://192.168.11.151:11311
-export ROS_IP=192.168.11.206
+export ROS_IP=<YOUR IP ADRESS HERE>
 source catkin_laptop_ws/devel/setup.bash
 roslaunch spot_arm_moveit_config spot_arm_planning_execution.launch
 ```
 
-5. Arm Pose Script: if ROS is correctly configured on the laptop, then the python MoveIt Commander API should pickup the MoveIt node (`spot_arm_moveit_config`) and start following the arm motions.
+7. Arm Pose Script: if ROS is correctly configured on the laptop, then the python MoveIt Commander API should pickup the MoveIt node (`spot_arm_moveit_config`) and start following the arm motions.
 ```
 export ROS_MASTER_URI=http://192.168.11.151:11311
-export ROS_IP=192.168.11.206
+export ROS_IP=<YOUR IP ADRESS HERE>
 source catkin_laptop_ws/devel/setup.bash
+cd ~/catkin_laptop_ws
 python3 moveit_joint_execute.py
 ```
 
