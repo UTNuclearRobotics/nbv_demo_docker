@@ -42,6 +42,7 @@ cd ~/nbv_demo_docker/laptop
 docker-compose build
 ```
 All the following steps are run in it's own terminal inside the Docker container.
+
 5. build the catkin workspace:
 ```
 cd ~/catkin_laptop_ws
